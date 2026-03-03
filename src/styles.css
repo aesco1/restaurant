@@ -1,9 +1,164 @@
+:root{
+    --primary-color: #F9F7F4;
+    --primary-accent: #8A9E85;
+    --text-color: #8A9E85;
+    --card-color: #E8E0D5;
+    --hover-color: #6B7C5C;
+    --accent: #C4785A;
+    --nav-footer-color: #2C2C2C;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+body{
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'DM Sans', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+}
+
 nav{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--nav-footer-color);
+    padding: 1.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
-button{
-    font-size: 1.5rem;
+nav button {
+  background-color: transparent;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: #8A9E85;
+  transition: width 0.3s ease;
+}
+
+nav button:hover {
+  color: #8A9E85;
+}
+
+nav button:hover::after {
+  width: 100%;
+}
+
+#content{
+    padding-top: 70px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+/* 
+Home
+*/
+
+.home-background{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.pics-container,
+.about-container,
+.hours-container{
+  background-color: var(--card-color);
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Extremely faint black */
+  border-radius: 9px; /* Softens the sharp corners */
+  width: 100%;
+  max-width: 800px;
+}
+
+.about-container {
+    background-color: var(--card-color);
+    margin: 0 auto;   /* Centers the container itself */
+    text-align: center; /* Centers the actual text, headings, and blockquotes */
+}
+
+.section-title{
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hours-intro{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hours-row {
+  display: flex;
+  justify-content: space-between; /* Pushes Day to left, Time to right */
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05); /* Soft border divider */
+}
+
+
+.kitchen-note{
+  font-size: .8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+dt {
+  font-weight: bold;
+  color: #333;
+}
+
+dd {
+  margin: 0; /* Browsers add a default indent to dd; this removes it */
+  color: #556b2f;
+}
+
+footer{
+    font-family: inherit;
+    margin-top:auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--nav-footer-color);
+    color: var(--primary-color);
 }
