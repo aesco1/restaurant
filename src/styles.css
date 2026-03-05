@@ -95,19 +95,71 @@ Home
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  background-color: var(--card-color);
+  border-radius: 9px; /* Softens the sharp corners */
+  width: clamp(300px, 90%, 700px);
+  padding: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .pics-container,
 .about-container,
 .hours-container{
-  background-color: var(--card-color);
   padding: 1rem;
-  border: 1px solid rgba(0, 0, 0, 0.05); /* Extremely faint black */
-  border-radius: 9px; /* Softens the sharp corners */
   width: 100%;
   max-width: 800px;
 }
 
+.gallery-grid{
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  padding: 16px;
+  scroll-snap-type: x mandatory;
+}
+
+.gallery-item{
+  flex: 0 0 calc(33.333% - 8px);
+  scroll-snap-align: start;
+  overflow: hidden;
+    border-radius: 8px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-grid {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+
+.gallery-grid::-webkit-scrollbar {
+    height: 2px;
+}
+
+.gallery-grid::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.gallery-grid::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 999px;
+}
+
+.gallery-grid::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+.description{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 .about-container {
     background-color: var(--card-color);
     margin: 0 auto;   /* Centers the container itself */
@@ -119,6 +171,23 @@ Home
   display: flex;
   align-items: center;
   justify-content: center;
+  
+}
+
+.tagline{
+  opacity: .6;
+  margin-top: -.5rem;
+}
+
+
+.about-content{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.brand-title{
+  font-size: 2rem;
 }
 
 .hours-intro{
@@ -161,4 +230,182 @@ footer{
     justify-content: center;
     background-color: var(--nav-footer-color);
     color: var(--primary-color);
+}
+
+
+/* Menu Styling */
+/* Appetizers*/
+.menu-background{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--card-color);
+  border-radius: 9px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 1rem;
+  width: clamp(300px, 90%, 700px);
+}
+
+
+.appetizer-container,
+.main-course-container,
+.dessert-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.apps-title,
+.main-course-title,
+.desserts-title{
+  font-size: 2.1rem;
+  color: var(--primary-accent);
+  align-self: center;
+}
+
+.menu-item{
+  width: 100%;
+}
+
+.menu-item > h3,
+.menu-item > p{
+  padding-left: 1rem;
+}
+
+.menu-item > h3{
+  font-size: 1.4rem;
+  width: 100%;
+  max-width: 650px;
+}
+
+.menu-item > p{
+  font-size: 1rem;
+  opacity: .5;
+  width: 100%;     /* or a fixed width like 600px */
+  max-width: 700px;
+}
+
+.menu-page-title{
+  font-size: 3rem;
+  margin-top: 1rem;
+  align-self: center;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Drinks */
+/* Menu Styling */
+/* Appetizers*/
+.drinks-background{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--card-color);
+  border-radius: 9px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  width: clamp(300px, 90%, 700px);
+}
+
+.drinks-title{
+  font-size: 3rem;
+  margin-top: 1rem;
+  align-self: center;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.cocktail-container,
+.liqour-spirits-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.cocktail-title,
+.beer-title,
+.liqour-title{
+  font-size: 2.1rem;
+  color: var(--primary-accent);
+  align-self: center;
+}
+
+.cocktail-title{
+  margin-top: -1.5rem;
+}
+
+.draft-title,
+.bottle-title{
+  font-size: 1.5rem;
+  justify-self: center;
+  opacity: .8;
+}
+
+.beer-title{
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+}
+
+.menu-item{
+  width: 100%;
+}
+
+.menu-item > h3,
+.menu-item > p{
+  padding-left: 1rem;
+  text-align: center
+}
+
+.menu-item > h3{
+  font-size: 1.4rem;
+  width: 100%;
+  max-width: 650px;
+}
+
+.menu-item > p{
+  font-size: 1rem;
+  opacity: .5;
+  width: 100%;     /* or a fixed width like 600px */
+  max-width: 700px;
+}
+
+.menu-page-title{
+  font-size: 3rem;
+  margin-top: 1rem;
+  align-self: center;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.beer-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.draft-container{
+  padding-left: 3rem;
+}
+
+.bottle-container{
+  padding-right: 3rem;
+}
+.draft-container > .menu-item,
+.bottle-container > .menu-item{
+  opacity: .6;
+}
+
+.beer-types-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.liqour-title{
+  padding-bottom: 1rem;
 }

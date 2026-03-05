@@ -2,6 +2,7 @@ export class Drinks{
 
     createCocktails(){
         const cocktailContainer = document.createElement('div');
+        cocktailContainer.classList.add("cocktail-container");
 
         const cocktailArray = [
             {name: 'The Bren Mule', desc:'Vodka, ginger syrup, cucumber water, lime, sparkling water.'},
@@ -12,7 +13,7 @@ export class Drinks{
         ];
 
         cocktailContainer.innerHTML = `
-            <h2>Cocktails<h2>
+            <h2 class="cocktail-title">Cocktails</h2>
             ${
                 cocktailArray.map(({name, desc}) => `
                     <div class="menu-item">
@@ -32,7 +33,18 @@ export class Drinks{
 
     createBeer(){
         const beerContainer = document.createElement('div');
+        beerContainer.classList.add("beer-container");
+
+        const draftContainer = document.createElement('div');
+        draftContainer.classList.add("draft-container")
+        const bottleContainer = document.createElement('div');
+        bottleContainer.classList.add("bottle-container")
+
+        const beerTitle = document.createElement('div');
+        beerTitle.classList.add("beer-title");
+        beerTitle.textContent = "Beer";
         
+
         const beerDraftArray = [
             {name: 'Cloudline Hazy IPA'},
             {name: 'High Plains Pilsner'},
@@ -49,8 +61,8 @@ export class Drinks{
             {name: 'Athletic Brewing Free Wave IPA'}
         ]
 
-        beerContainer.innerHTML = `
-            <h2>Beers<h2>
+        draftContainer.innerHTML = `
+            <h3 class="draft-title">Draft</h3>
             ${
                 beerDraftArray.map(({name}) => `
                     <div class="menu-item">
@@ -61,11 +73,31 @@ export class Drinks{
             }
         `;
 
+        bottleContainer.innerHTML = `
+            <h3 class="bottle-title">Bottled</h3>
+            ${
+                beerDraftArray.map(({name}) => `
+                    <div class="menu-item">
+                        <h3>${name}</h3>
+                    </div>
+                `
+                ).join('')
+            }
+        `;
+
+        const beerTypesContainer = document.createElement('div');
+        beerTypesContainer.classList.add("beer-types-container");
+        beerTypesContainer.appendChild(draftContainer);
+        beerTypesContainer.appendChild(bottleContainer);
+        beerContainer.appendChild(beerTitle);
+        beerContainer.appendChild(beerTypesContainer);
+        
         return beerContainer
     }
 
     createLiqourSpirits(){
         const liqourSpiritsContainer = document.createElement('div');
+        liqourSpiritsContainer.classList.add("liqour-spirits-container")
 
         const liquorSpiritsArray = [
             {name: 'Casamigos Blanco Tequila'},
@@ -76,7 +108,7 @@ export class Drinks{
         ]
 
         liqourSpiritsContainer.innerHTML = `
-            <h2>Liquour and Spirits<h2>
+            <h2 class="liqour-title">Liquour and Spirits</h2>
             ${
                 liquorSpiritsArray.map(({name}) => `
                     <div class="menu-item">
@@ -94,6 +126,11 @@ export class Drinks{
         const container = document.createElement('div')
         container.classList.add("drinks-background");
 
+        const drinksTitle = document.createElement('div');
+        drinksTitle.classList.add("drinks-title");
+        drinksTitle.textContent = "Drinks";
+
+        container.appendChild(drinksTitle);
         container.appendChild(this.createCocktails());
         container.appendChild(this.createBeer());
         container.appendChild(this.createLiqourSpirits());

@@ -10,7 +10,7 @@ const drinks = new Drinks();
 
 const content = document.querySelector('#content');
 content.innerHTML = '';
-content.appendChild(menu.render());
+content.appendChild(drinks.render());
 
 const homeButton = document.querySelector('#home-button')
 homeButton.addEventListener('click', (event)=>{

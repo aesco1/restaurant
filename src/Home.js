@@ -1,3 +1,9 @@
+import bowl from './images/bowl.jpg';
+import cocktail from './images/cocktail.jpg';
+import interior from './images/interior.jpg';
+import beer from './images/beer.jpg';
+import salad from './images/salad.jpg';
+import bar from './images/bar.jpg';
 
 export class Home{
 
@@ -7,27 +13,31 @@ export class Home{
 
         aboutContainer.innerHTML =`
         <div class="about-content">
-            <h2 class="brand-title">Welcome to Brën</h2>
-            <p class="tagline">Clean Eating. Consciously Crafted.</p>
-
-            <div class="description">
-            <p>
-                At <strong>Brën</strong>, we believe that eating well shouldn’t mean missing out. 
-                We’ve built a kitchen centered on transparency, sourcing whole, vibrant ingredients 
-                to create dishes that nourish your body without sacrificing the bold flavors you crave.
-            </p>
-
-            <p>
-                But we also know the importance of a good pour. Our bar program balances the scales 
-                with a curated selection of <strong>craft cocktails</strong> and a rotating lineup 
-                of <strong>premium draft beers</strong> from the best independent brewers.
-            </p>
+            <div class=title-and-tag>
+                <h2 class="brand-title">Welcome to Brën</h2>
+                <p class="tagline">Clean Eating. Consciously Crafted.</p>
             </div>
 
-            <blockquote class="brand-definition">
-            <strong>Brën</strong> (pronounced <em>bren</em>): Inspired by the roots of the word for 
-            "essence," it represents our commitment to fueling your lifestyle with clean fuel and high spirits.
-            </blockquote>
+            <div class="description">
+                <p>
+                    At <strong>Brën</strong>, we believe that eating well shouldn’t mean missing out. 
+                    We’ve built a kitchen centered on transparency, sourcing whole, vibrant ingredients 
+                    to create dishes that nourish your body without sacrificing the bold flavors you crave.
+                </p>
+
+                <p>
+                    But we also know the importance of a good pour. Our bar program balances the scales 
+                    with a curated selection of <strong>craft cocktails</strong> and a rotating lineup 
+                    of <strong>premium draft beers</strong> from the best independent brewers.
+                </p>
+            </div>
+
+            <div class="brand-def">
+                <blockquote class="brand-definition">
+                <strong>Brën</strong> (pronounced <em>bren</em>): Inspired by the roots of the word for 
+                "essence," it represents our commitment to fueling your lifestyle with clean fuel and high spirits.
+                </blockquote>
+            </div>
         </div>
         `;
 
@@ -72,19 +82,24 @@ export class Home{
         const galleryContainer = document.createElement('div');
         galleryContainer.classList.add('pics-container');
         
-
-        const photos = ['bowl.jpg', 'cocktail.jpg', 'interior.jpg', 'beer.jpg', 'salad.jpg', 'bar.jpg'];
+        const photos = [
+            { src: bowl, alt: 'Bowl' },
+            { src: cocktail, alt: 'Cocktail' },
+            { src: interior, alt: 'Interior' },
+            { src: beer, alt: 'Beer' },
+            { src: salad, alt: 'Salad' },
+            { src: bar, alt: 'Bar' },
+        ];
 
         const galleryHTML = photos.map(photo => `
-        <div class="gallery-item">
-            <img src="images/${photo}" alt="Brën Gallery Image">
-        </div>
+            <div class="gallery-item">
+                <img src="${photo.src}" alt="Brën ${photo.alt}">
+            </div>
         `).join('');
 
         galleryContainer.innerHTML = `<div class="gallery-grid">${galleryHTML}</div>`;
 
         return galleryContainer;
-
     }
 
 

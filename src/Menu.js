@@ -2,6 +2,7 @@ export class Menu{
 
     createAppetizers(){
         const appetizerContainer = document.createElement('div');
+        appetizerContainer.classList.add("appetizer-container");
 
         const appetizers = [
             {name: 'Charred Edamame Hummus', desc:'Edamame, tahini, lemon, seed crackers, cucumber.'},
@@ -12,16 +13,16 @@ export class Menu{
         ];
 
         appetizerContainer.innerHTML = `
-            <h2>Appetizers<h2>
-            ${
-                appetizers.map(({name, desc}) => `
-                    <div class="menu-item">
-                        <h3>${name}</h3>
-                        <p>${desc}</h3>
-                    </div>
-                `
-                ).join('')
-            }
+            <h2 class="apps-title">Appetizers</h2>
+                ${
+                    appetizers.map(({name, desc}) => `
+                        <div class="menu-item">
+                            <h3>${name}</h3>
+                            <p>${desc}</h3>
+                        </div>
+                    `
+                    ).join('')
+                }
         `;
 
         return appetizerContainer
@@ -32,7 +33,8 @@ export class Menu{
 
     createMainCourses(){
         const mainCourseContainer = document.createElement('div');
-        
+        mainCourseContainer.classList.add("main-course-container");
+
         const mainCourses = [
             {name: 'Grilled Salmon Power Bowl', desc:'Atlantic salmon, wild grain rice, broccolini, radish, avocado, miso-ginger glaze.'},
             {name: 'Herb-Crusted Free Range Chicken', desc: 'Chicken breast, fresh herbs, lemon zest, farro, roasted root vegetables.'},
@@ -42,7 +44,7 @@ export class Menu{
         ]
 
         mainCourseContainer.innerHTML = `
-            <h2>Main Courses<h2>
+            <h2 class= "main-course-title">Main Courses</h2>
             ${
                 mainCourses.map(({name, desc}) => `
                     <div class="menu-item">
@@ -59,7 +61,9 @@ export class Menu{
 
     createDesserts(){
         const dessertContainer = document.createElement('div');
-
+        dessertContainer.classList.add("dessert-container");
+        
+        
         const desserts = [
             {name: 'Dark Chocolate Avocado Mousse', desc:'Avocado, 70% cacao, toasted coconut, sea salt.'},
             {name: 'Almond Flour Lemon Tart', desc: 'Lemon curd, almond flour crust, monk fruit.'},
@@ -69,7 +73,7 @@ export class Menu{
         ]
 
         dessertContainer.innerHTML = `
-            <h2>Desserts<h2>
+            <h2 class= "desserts-title">Desserts</h2>
             ${
                 desserts.map(({name, desc}) => `
                     <div class="menu-item">
@@ -87,7 +91,12 @@ export class Menu{
     render(){
         const container = document.createElement('div')
         container.classList.add("menu-background");
+        
+        const menuTitle = document.createElement('div');
+        menuTitle.classList.add("menu-page-title");
+        menuTitle.textContent = "Menu";
 
+        container.appendChild(menuTitle);
         container.appendChild(this.createAppetizers());
         container.appendChild(this.createMainCourses());
         container.appendChild(this.createDesserts());
